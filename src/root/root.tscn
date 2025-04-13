@@ -24,3 +24,10 @@ offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 123.0
+offset_right = 790.0
+offset_bottom = 146.0

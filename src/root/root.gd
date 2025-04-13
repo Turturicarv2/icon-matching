@@ -1,12 +1,16 @@
 extends Control
 
 @onready var grid = $GridContainer
+@onready var label: Label = $Label
 @export var card_scene: PackedScene
 
 var flipped_cards: Array = []
+var move_count: int = 0
 
 
 func _ready():
+	label.text = "Moves: %d" % move_count
+	
 	var icons = _preload_icons()
 	var shuffled_icons = icons.duplicate()
 	shuffled_icons.append_array(icons) # duplicate to make pairs
@@ -48,6 +52,9 @@ func card_flipped(card) -> void:
 			await get_tree().create_timer(1.0).timeout
 			first.flip_back()
 			second.flip_back()
+		
+		move_count += 1
+		label.text = "Moves: %d" % move_count
 
 		flipped_cards.clear()
 
